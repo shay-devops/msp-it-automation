@@ -46,6 +46,23 @@ visibility byte. Because this method requires an Explorer restart to take
 effect, the script stamps a per-profile registry marker so the restart only
 ever happens once per user — not on every run.
 
+## Deployment (NinjaRMM)
+
+This script is deployed as a **Scheduled Automation** within a Windows
+Workstation policy in NinjaRMM, attached to a **base/default policy** that
+individual client policies inherit from — so it applies fleet-wide rather
+than being configured per client.
+
+- **Trigger:** On User Login
+- **Run context:** Current Logged-on User (required — the tray icon data
+  lives in the interactive user's registry hive, not SYSTEM's)
+- **Scope:** Applied once at the base policy level, inherited by all
+  client-specific Windows Workstation policies built on top of it
+
+Because the script is idempotent (each OS branch checks current state before
+writing anything), running it on every login is safe — most runs are no-ops
+once an icon is already pinned or a Windows 10 profile marker is already set.
+
 ## Design Notes
 
 - **Runs in user context (HKCU)** — must run as the logged-on user, not
