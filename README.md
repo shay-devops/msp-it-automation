@@ -10,6 +10,8 @@ Real-world automation and admin scripts written to solve production problems acr
 
 - **[ScoutDNS Callout Driver Workaround](./ScoutDNSCallout-Workaround)** — Fix for a ScoutDNS Windows Endpoint Client installer bug where the required ScoutDNSCallout kernel driver service is never created, causing every install attempt to fail with Error 1920 and roll back identically. Deployed as a NinjaRMM script.
 
+- - [New Teams OS-Aware Update](new-teams-os-aware-update) — Auto-detects Windows 10/11 vs. Server 2019 to pick the correct New Teams install method, since the standard bootstrapper's MSIX install silently fails on Server 2019/RDS hosts.
+
 ## About
 
 These scripts come from day-to-day work supporting client environments as part of an MSP — spanning Microsoft 365/Entra ID, Azure automation, Windows endpoint management, and network/security tooling. More entries will be added over time.
