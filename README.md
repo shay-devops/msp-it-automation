@@ -4,14 +4,20 @@ Real-world automation and admin scripts written to solve production problems acr
 
 ## Contents
 
-- **[Dynamic Distribution Lists + CustomAttribute1 Stamping](./dynamic-distribution-lists)** — Workaround for the Exchange Online DDL domain-filter regression, using an Azure Automation runbook with Managed Identity to stamp a custom attribute on mailboxes nightly.
+- [Dynamic Distribution Lists + CustomAttribute1 Stamping](dynamic-distribution-lists/) — Workaround for the Exchange Online DDL domain-filter regression, using an Azure Automation runbook with Managed Identity to stamp a custom attribute on mailboxes nightly.
 
-- **[Pinning the NinjaRMM Tray Icon (Win10 + Win11)](./ninja-tray-icon-pinning)** — Reverse-engineered the undocumented per-user tray icon pinning mechanism on both Windows 10 (binary registry blob) and Windows 11 (NotifyIconSettings), to force an RMM agent icon to stay visible on the taskbar fleet-wide.
+- [Geo-Login Alert](geo-login-alert/) — Azure Automation runbooks that email an alert when a Microsoft 365 user signs in from outside approved countries, built for tenants without Entra P1. Two variants: Office 365 Management Activity API (recommended) or Unified Audit Log. Uses a managed identity, least-privilege mail scoping, per-user exceptions, and de-duplication.
 
-- **[ScoutDNS Callout Driver Workaround](./ScoutDNSCallout-Workaround)** — Fix for a ScoutDNS Windows Endpoint Client installer bug where the required ScoutDNSCallout kernel driver service is never created, causing every install attempt to fail with Error 1920 and roll back identically. Deployed as a NinjaRMM script.
+- [Pinning the NinjaRMM Tray Icon (Win10 + Win11)](ninja-tray-icon-pinning/) — Reverse-engineered the undocumented per-user tray icon pinning mechanism on both Windows 10 (binary registry blob) and Windows 11 (NotifyIconSettings), to force an RMM agent icon to stay visible on the taskbar fleet-wide.
 
-- [New Teams OS-Aware Update](new-teams-os-aware-update) — Auto-detects Windows 10/11 vs. Server 2019 to pick the correct New Teams install method, since the standard bootstrapper's MSIX install silently fails on Server 2019/RDS hosts.
+- [ScoutDNS Callout Driver Workaround](ScoutDNSCallout-Workaround/) — Fix for a ScoutDNS Windows Endpoint Client installer bug where the required ScoutDNSCallout kernel driver service is never created, causing every install attempt to fail with Error 1920 and roll back identically. Deployed as a NinjaRMM script.
+
+- [New Teams OS-Aware Update](new-teams-os-aware-update/) — Auto-detects Windows 10/11 vs. Server 2019 to pick the correct New Teams install method, since the standard bootstrapper's MSIX install silently fails on Server 2019/RDS hosts.
 
 ## About
 
 These scripts come from day-to-day work supporting client environments as part of an MSP — spanning Microsoft 365/Entra ID, Azure automation, Windows endpoint management, and network/security tooling. More entries will be added over time.
+
+## License
+
+Released under the [MIT License](LICENSE). Use at your own risk and test in a non-production environment first.
